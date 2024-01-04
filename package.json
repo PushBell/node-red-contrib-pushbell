@@ -1,0 +1,38 @@
+{
+  "author": "Marius Lang <marius@mariuslang.de>",
+  "dependencies": {},
+  "deprecated": false,
+  "description": "NodeRED integration for PushBell",
+  "keywords": [
+    "node-red",
+    "pushbell",
+    "push notification",
+    "notification"
+  ],
+  "license": "MIT",
+  "name": "node-red-contrib-pushbell",
+  "node-red": {
+    "nodes": {
+      "pushbell": "main.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariusLang/node-red-contrib-pushbell.git"
+  },
+  "version": "1.0.0",
+  "bugs": {
+    "url": "https://github.com/MariusLang/node-red-contrib-pushbell/issues"
+  },
+  "homepage": "https://github.com/MariusLang/node-red-contrib-pushbell#readme",
+  "main": "main.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.3"
+  }
+}
