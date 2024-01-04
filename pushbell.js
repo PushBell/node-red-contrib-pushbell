@@ -1,8 +1,13 @@
 module.exports = function (RED) {
-  function feiertage(config) {
+  function pushbell(config) {
     RED.nodes.createNode(this, config);
     const node = this;
+
+    node.on('input', (msg) => {
+      const payload = msg.payload;
+      node.send({payload: msg.payload});
+    });
   }
 
-  RED.nodes.registerType('feiertage', feiertage);
+  RED.nodes.registerType('pushbell', pushbell);
 };

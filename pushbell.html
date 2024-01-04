@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<script type="text/html" data-template-name="pushbell">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="pushbell">
+    <h3><span style="color: #007AFF;">Details</span></h3>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType("pushbell", {
+    category: "system",
+    color: "#007AFF",
+    inputLabels: "create push notification",
+    outputLabels: "pushbell",
+    defaults: {
+      name: {
+        value: "PushBell",
+        required: true
+      }
+    },
+    inputs: 1,
+    outputs: 0,
+    icon: "icon.svg",
+    label: function () {
+      return this.name || "PushBell";
+    },
+  });
+</script>
