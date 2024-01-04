@@ -24,7 +24,7 @@
     "url": "https://github.com/MariusLang/node-red-contrib-pushbell/issues"
   },
   "homepage": "https://github.com/MariusLang/node-red-contrib-pushbell#readme",
-  "main": "main.js",
+  "main": "pushbell.js",
   "scripts": {
     "lint": "eslint ./",
     "test": "jest"
