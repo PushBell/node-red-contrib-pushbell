@@ -12,7 +12,7 @@
   "name": "node-red-contrib-pushbell",
   "node-red": {
     "nodes": {
-      "pushbell": "main.js"
+      "pushbell": "pushbell.js"
     }
   },
   "repository": {

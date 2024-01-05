@@ -4,8 +4,8 @@ module.exports = function (RED) {
     const node = this;
 
     node.on('input', (msg) => {
-      const payload = msg.payload;
-      node.send({payload: msg.payload});
+      const { payload } = msg;
+      node.send({ payload: msg.payload });
     });
   }
 
