@@ -7,6 +7,12 @@ module.exports = function (RED) {
     async function createNotification(body) {
       node.log(body);
 
+      node.status({
+        fill: 'blue',
+        shape: 'ring',
+        text: 'sending',
+      });
+
       const result = await fetch('https://us-central1-push-notifications-9cf36.cloudfunctions.net/api/createNotification', {
         method: 'POST',
         body: JSON.stringify({
@@ -19,12 +25,14 @@ module.exports = function (RED) {
         },
       });
 
-      if (result.ok) {
-        node.log('Successful');
-      } else {
-        node.error(result.statusText);
-        node.error(result.status);
-      }
+      const statusCode = result.status;
+      const resultText = await result.text();
+
+      node.status({
+        fill: statusCode === 200 ? 'green' : 'red',
+        shape: 'dot',
+        text: `${statusCode} ${resultText}`,
+      });
     }
 
     node.on('input', (msg) => {
