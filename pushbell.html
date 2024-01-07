@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <script type="text/html" data-template-name="pushbell">
     <div class="form-row">
-        <label for="node-input-apikey"><i class="fa fa-tag"></i> API Key</label>
-        <input type="text" id="node-input-apikey" placeholder="API Key">
+        <label for="node-input-config"><i class="fa fa-key"></i> API Key</label>
+        <input type="text" id="node-input-config" placeholder="API Key">
     </div>
     <hr>
     <div class="form-row">
@@ -26,10 +26,10 @@
         value: 'PushBell',
         required: true
       },
-      apikey: {
+      config: {
         value: '',
-        required: true
-      }
+        type: 'pushbell-config'
+      },
     },
     inputs: 1,
     outputs: 0,
