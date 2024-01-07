@@ -24,7 +24,7 @@ module.exports = function (RED) {
             description: 'Test Description',
           }),
           headers: {
-            Authorization: `Bearer ${pushbellConfig.apiKey}`,
+            Authorization: pushbellConfig.apiKey,
             'Content-Type': 'application/json',
           },
         });
