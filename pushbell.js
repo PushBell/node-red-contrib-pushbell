@@ -4,6 +4,8 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     const node = this;
 
+    const apiKey = config.apikey;
+
     async function createNotification(body) {
       node.log(body);
 
@@ -20,7 +22,7 @@ module.exports = function (RED) {
           description: 'Test Description',
         }),
         headers: {
-          Authorization: 'Bearer xyz',
+          Authorization: `Bearer ${apiKey}`,
           'Content-Type': 'application/json',
         },
       });
