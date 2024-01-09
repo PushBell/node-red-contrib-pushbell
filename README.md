@@ -1,4 +1,4 @@
-![banner](img/Server-Phone-Banner.png)
+![banner](img/Node-RED-Banner.png)
 
 # Node RED PushBell Node
 
