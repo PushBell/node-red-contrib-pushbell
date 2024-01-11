@@ -18,6 +18,8 @@ npm install node-red-contrib-pushbell
 
 ## Quick Start
 
+**TODO: add Video Guide**
+
 1. PushBell app setup
     1. Download the PushBell app from the [App Store]()
     2. Create an PushBell account in the app
