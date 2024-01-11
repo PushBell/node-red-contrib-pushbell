@@ -18,19 +18,36 @@ npm install node-red-contrib-pushbell
 
 ## Quick Start
 
-1. Import [this example](#example)
-2. Change the node configuration, especially the API key
-3. Send [this](#node-input) payload to the node's input
-4. If everything was successful the [node status](#node-status) should turn to ***sending*** and after a few seconds to
-   ***200 Notification successfully created***
+1. PushBell app setup
+    1. Download the PushBell app from the [App Store]()
+    2. Create an PushBell account in the app
+    3. Follow the instructions in the app to generate an API key
+2. Node RED PushBell node setup
+    1. Import [this example](#example) in Node RED
+    2. Change the node configuration, especially the API key
+    3. Send [this](#node-input) payload to the input of the node. You can adjust the title and description as needed to
+       align with your purpose.
+    4. If everything was successful the [node status](#node-status) should turn to ***sending*** and after a few seconds
+       to ***200 Notification successfully created***
 
 ## Getting Started
 
-To get started, download the PushBell app from the App Store. After installation, go ahead and create your own PushBell
-account.
+### PushBell app setup
 
-Then initialize the node-red-contrib-pushbell node with your API key. Therefore, create a configuration node and
-initialize it with your API key.
+If you already have an PushBell account, all you need to do is sign in. You can locate your existing API keys under the
+*Settings > Manage API keys* section. Otherwise, please follow the instructions below.
+
+To get started, download the PushBell app from the App Store. After installation, go ahead and create your own PushBell
+account. To create an API key, just follow the instructions given or go to *Settings > Manage API keys* and select
+**Generate API key**. Before that, you need to pick an appropriate name for the API key. The name you choose is up
+to you. It's simply helpful for you to identify your API keys at a later time.
+
+### PushBell Node RED setup
+
+Then switch to Node RED and [install](#installation) the **node-red-contrib-pushbell** node. When the installation is
+completed, you need to initialize the node by using your API key. To do this, create a configuration node and initialize
+it with your API key. In the configuration node, you can also choose a name for the API key. The name you choose is up
+to you. It's simply necessary for you to identify your API key configuration nodes at a later time.
 
 To create notifications send [this](#node-input) payload to the node's input.
 
