@@ -93,6 +93,12 @@ Common errors are:
 
 ## Example
 
+### Example with inject node
 ```
-EXAMPLE
+[{"id":"fb6722ac587b6597","type":"pushbell","z":"3da09f0d7844dad0","name":"PushBell","config":"9da5db230813bb17","x":540,"y":200,"wires":[]},{"id":"2ffbc301bddb43ce","type":"inject","z":"3da09f0d7844dad0","name":"msg.payload","props":[{"p":"payload.name","v":"Test Title","vt":"str"},{"p":"payload.description","v":"Test Description","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":390,"y":200,"wires":[["fb6722ac587b6597"]]},{"id":"9da5db230813bb17","type":"pushbell-config","name":"My API Key","apiKey":"replace with your API key"}]
+```
+
+### Example with function node
+```
+[{"id":"0780a9a59135a8e0","type":"function","z":"3da09f0d7844dad0","name":"msg.payload","func":"msg.payload = {\n    title: \"My Notification Title\",\n    description: \"My Notification Description\"\n}\n\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":430,"y":260,"wires":[["43ae6e86ca849bf9"]]},{"id":"6af1a75b88ad0e01","type":"inject","z":"3da09f0d7844dad0","name":"inject","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":290,"y":260,"wires":[["0780a9a59135a8e0"]]},{"id":"43ae6e86ca849bf9","type":"pushbell","z":"3da09f0d7844dad0","name":"PushBell","config":"9da5db230813bb17","x":580,"y":260,"wires":[]},{"id":"9da5db230813bb17","type":"pushbell-config","name":"My API Key","apiKey":"replace with your API key"}]
 ```
