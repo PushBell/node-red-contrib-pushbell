@@ -12,7 +12,87 @@
 </script>
 
 <script type="text/html" data-help-name="pushbell">
-    <h3><span style="color: #007AFF;">Details</span></h3>
+    <h3><span style="color: #007AFF;">Quick Start</span></h3>
+    <ol>
+        <li>PushBell app setup
+            <ol>
+                <li>Download the PushBell app from the <a href="#">App Store</a></li>
+                <li>Create an PushBell account in the app</li>
+                <li>Follow the instructions in the app to generate an API key</li>
+            </ol>
+        </li>
+        <li>Node RED PushBell node setup
+            <ol>
+                <li>Import the example below in Node RED</li>
+                <li>Change the node configuration, especially the API key</li>
+                <li>Send the payload to the input of the node. You can adjust the title and description as needed to
+                    align with your purpose.
+                </li>
+                <li>If everything was successful the node status should turn to <code>sending</code> and after
+                    a few seconds to <code>200 Notification successfully created</code>.
+                </li>
+            </ol>
+        </li>
+    </ol>
+    <h3><span style="color: #007AFF;">Getting Started</span></h3>
+    <h4><span style="color: #007AFF;">PushBell app setup</span></h4>
+    <p>If you already have an PushBell account, all you need to do is sign in. You can locate your existing API keys
+        under the <em>Settings > Manage API keys</em> section. Otherwise, please follow the instructions below.</p>
+    <p>To get started, download the PushBell app from the App Store. After installation, go ahead and create your own
+        PushBell account. To create an API key, just follow the instructions given or go to <em>Settings > Manage API
+            keys</em>and select <b>Generate API key</b>. Before that, you need to pick an appropriate name for the API
+        key. The name you choose is up to you. It's simply helpful for you to identify your API keys at a later time.
+    </p>
+    <h4><span style="color: #007AFF;">PushBell Node RED setup</span></h4>
+    <p>Then initialize the node by using your API key. To do this, create a PushBell configuration node and initialize
+        it with your API key. In the configuration node, you can also choose a name for the API key. The name you choose
+        is up to you. It's simply necessary for you to identify your API key configuration nodes at a later time.</p>
+    <p>To create notifications send the payload described below to the node's input.</p>
+    <h3><span style="color: #007AFF;">Node Input</span></h3>
+    <code>msg.payload = { title: "My Notification Title", description: "My Notification Description" }</code>
+    <h3><span style="color: #007AFF;">Node Status</span></h3>
+    <h4><span style="color: #007AFF;">Green</span></h4>
+    <p>If you see a green dot and a message that says <code>200 Notification successfully
+        created</code>, it means everything went smoothly. Your notification has been sent to the PushBell server and
+        the smartphones connected to your account.</p>
+    <h4><span style="color: #007AFF;">Blue</span></h4>
+    <p>If you see a blue ring and a message that says <code>sending</code>, it means that the node-red-contrib-pushbell
+        node is attempting to create a notification. In a few seconds, this status should change to either red or green.
+    </p>
+    <h4><span style="color: #007AFF;">Red</span></h4>
+    <p>If you see a red dot, it indicates an error occurred while creating a notification. To obtain more
+        information, refer to the message provided next to the status badge.
+    </p>
+    <p>Common errors status codes are:</p>
+    <ul>
+        <li><code>401 Unauthorized</code> - Something went wrong with the authorization process. Please check your API
+            key configuration and try again.
+        </li>
+        <li><code>429 Requests exceeded for today</code> - The number of notifications you can send per day is limited.
+            It seems that this limit has been exceeded. For more information, please refer to the information provided
+            in the PushBell app.
+        </li>
+        <li><code>400 Bad Request</code> - Check the payload you send to the node-red-contrib-pushbell node. It appears
+            that there may be something wrong with your input body. In the section Node Input you will find additional
+            information on how your input payload should be formatted.
+        </li>
+        <li><code>500 Request failed</code> - If you come across this error, please check your node configuration and
+            attempt to create a notification again. If you encounter this error once more, feel free to contact us.
+        </li>
+    </ul>
+    <h3><span style="color: #007AFF;">Example</span></h3>
+    <h4><span style="color: #007AFF;">Example with inject node</span></h4>
+    <code>[{"id":"fb6722ac587b6597","type":"pushbell","z":"3da09f0d7844dad0","name":"PushBell","config":"9da5db230813bb17","x":540,"y":200,"wires":[]},{"id":"2ffbc301bddb43ce","type":"inject","z":"3da09f0d7844dad0","name":"msg.payload","props":[{"p":"payload.name","v":"Test
+        Title","vt":"str"},{"p":"payload.description","v":"Test
+        Description","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":390,"y":200,"wires":[["fb6722ac587b6597"]]},{"id":"9da5db230813bb17","type":"pushbell-config","name":"My
+        API Key","apiKey":"replace with your API key"}]
+    </code>
+    <h4><span style="color: #007AFF;">Example with function node</span></h4>
+    <code>[{"id":"0780a9a59135a8e0","type":"function","z":"3da09f0d7844dad0","name":"msg.payload","func":"msg.payload =
+        {\n title: \"My Notification Title\",\n description: \"My Notification Description\"\n}\n\nreturn
+        msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":430,"y":260,"wires":[["43ae6e86ca849bf9"]]},{"id":"6af1a75b88ad0e01","type":"inject","z":"3da09f0d7844dad0","name":"inject","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":290,"y":260,"wires":[["0780a9a59135a8e0"]]},{"id":"43ae6e86ca849bf9","type":"pushbell","z":"3da09f0d7844dad0","name":"PushBell","config":"9da5db230813bb17","x":580,"y":260,"wires":[]},{"id":"9da5db230813bb17","type":"pushbell-config","name":"My
+        API Key","apiKey":"replace with your API key"}]
+    </code>
 </script>
 
 <script type="text/javascript">
@@ -33,7 +113,7 @@
     },
     inputs: 1,
     outputs: 0,
-    icon: 'icon.svg',
+    icon: 'icon.png',
     label: function () {
       return this.name || 'PushBell';
     },
