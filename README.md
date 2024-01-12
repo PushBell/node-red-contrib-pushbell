@@ -8,7 +8,7 @@
 
 [![NPM](https://nodei.co/npm/node-red-contrib-pushbell.png?compact=true)](https://nodei.co/npm/node-red-contrib-pushbell/)
 
-The Node RED **PushBell** node you can easily create notifications in Node RED and send them to your iPhone.
+The Node RED **PushBell** node allows you to create notifications in Node RED, which can be sent to your iPhone.
 
 ## Installation
 
@@ -29,8 +29,8 @@ npm install node-red-contrib-pushbell
     2. Change the node configuration, especially the API key
     3. Send [this](#node-input) payload to the input of the node. You can adjust the title and description as needed to
        align with your purpose.
-    4. If everything was successful the [node status](#node-status) should turn to ***sending*** and after a few seconds
-       to ***200 Notification successfully created***.
+    4. If everything was successful the [node status](#node-status) should turn to `sending` and after a few seconds
+       to `200 Notification successfully created`.
 
 ## Getting Started
 
@@ -76,7 +76,7 @@ to create a notification. In a few seconds, this status should change to either 
 
 ### Red
 
-If you encounter a red dot, it indicates an error occurred while creating a notification. To obtain more information,
+If you see a red dot, it indicates an error occurred while creating a notification. To obtain more information,
 refer to the message provided next to the status badge.
 
 Common errors status codes are:
@@ -85,11 +85,11 @@ Common errors status codes are:
   try again.
 - `429 Requests exceeded for today` - The number of notifications you can send per day is limited. It seems that this
   limit has been exceeded. For more information, please refer to the information provided in the PushBell app.
-- `400 Bad Request` - Check the payload you send to the node-red-contrib-pushbell node. It appears that there may be
+- `400 Bad Request` - Check the payload you sent to the node-red-contrib-pushbell node. It appears that there may be
   something wrong with your input body. In the section [Node Input](#node-input) you will find additional information on
   how your input payload should be formatted.
 - `500 Request failed` - If you come across this error, please check your node configuration and attempt to create a
-  notification again. If you encounter this error once more, feel free to reach out to us.
+  notification again. If you encounter this error once more, feel free to contact us.
 
 ## Example
 
