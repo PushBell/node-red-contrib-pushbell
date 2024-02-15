@@ -28,19 +28,14 @@
   "main": "pushbell.js",
   "scripts": {
     "lint": "eslint ./",
-    "test": "jest"
-  },
-  "jest": {
-    "transform": {
-      "\\.[jt]sx?$": "babel-jest"
-    }
+    "test": "mocha \"test/**/*_spec.js\""
   },
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
-    "@babel/preset-env": "^7.21.4",
-    "babel-jest": "^29.5.0",
-    "jest": "^29.5.0"
+    "node-red": "^3.1.5",
+    "node-red-node-test-helper": "^0.3.3",
+    "mocha": "^10.3.0"
   }
 }
