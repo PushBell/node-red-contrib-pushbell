@@ -8,8 +8,6 @@ module.exports = function (RED) {
     const pushbellConfig = RED.nodes.getNode(config.config);
 
     async function createNotification(body) {
-      node.log(body);
-
       node.status({
         fill: 'blue',
         shape: 'ring',
@@ -20,8 +18,8 @@ module.exports = function (RED) {
         const result = await fetch('https://www.pushbell.info/api/createNotification', {
           method: 'POST',
           body: JSON.stringify({
-            title: 'Test Title',
-            description: 'Test Description',
+            title: body.title,
+            description: body.description,
           }),
           headers: {
             Authorization: pushbellConfig.apiKey,
