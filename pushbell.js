@@ -17,7 +17,7 @@ module.exports = function (RED) {
       });
 
       if (pushbellConfig) {
-        const result = await fetch('https://us-central1-push-notifications-9cf36.cloudfunctions.net/api/createNotification', {
+        const result = await fetch('https://www.pushbell.info/api/createNotification', {
           method: 'POST',
           body: JSON.stringify({
             title: 'Test Title',
@@ -46,9 +46,9 @@ module.exports = function (RED) {
       }
     }
 
-    node.on('input', (msg) => {
+    node.on('input', async (msg) => {
       const { payload } = msg;
-      createNotification(payload);
+      await createNotification(payload);
     });
   }
 
