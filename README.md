@@ -21,10 +21,10 @@ npm install node-red-contrib-pushbell
 1. PushBell app setup
     1. Download the PushBell app from the [App Store]()
     2. Create an PushBell account in the app
-    3. Follow the instructions in the app to generate an API key
+    3. Go to *Settings > Manage API Keys* and generate an API key
 2. Node RED PushBell node setup
     1. Import [this example](#example) in Node RED
-    2. Change the node configuration, especially the API key
+    2. Change the node configuration, especially the API key to that created in step 1.3
     3. Send [this](#node-input) payload to the input of the node. You can adjust the title and description as needed to
        align with your purpose.
     4. If everything was successful the [node status](#node-status) should turn to `sending` and after a few seconds
