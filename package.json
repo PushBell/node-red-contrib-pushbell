@@ -6,7 +6,9 @@
     "node-red",
     "pushbell",
     "push notification",
-    "notification"
+    "push notifications",
+    "notification",
+    "notifications"
   ],
   "license": "MIT",
   "name": "node-red-contrib-pushbell",
