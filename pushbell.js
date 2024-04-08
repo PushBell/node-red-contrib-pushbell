@@ -4,6 +4,9 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config);
     const node = this;
 
+    // eslint-disable-next-line global-require
+    const fetch = require('node-fetch');
+
     // const apiKey = config.apikey;
     const pushbellConfig = RED.nodes.getNode(config.config);
 
