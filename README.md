@@ -21,10 +21,10 @@ npm install node-red-contrib-pushbell
 1. PushBell app setup
     1. Download the PushBell app from the [App Store](https://apps.apple.com/de/app/pushbell/id6474076842)
     2. Create an PushBell account in the app
-    3. Follow the instructions in the app to generate an API key
+    3. Go to *Settings > Manage API Keys* and generate an API key
 2. Node RED PushBell node setup
     1. Import [this example](#example) in Node RED
-    2. Change the node configuration, especially the API key
+    2. Change the node configuration, especially the API key to that created in step 1.iii
     3. Send [this](#node-input) payload to the input of the node. You can adjust the title and description as needed to
        align with your purpose.
     4. If everything was successful the [node status](#node-status) should turn to `sending` and after a few seconds
@@ -94,11 +94,11 @@ Common errors status codes are:
 ### Example with inject node
 
 ```
-[{"id":"fb6722ac587b6597","type":"pushbell","z":"3da09f0d7844dad0","name":"PushBell","config":"9da5db230813bb17","x":540,"y":200,"wires":[]},{"id":"2ffbc301bddb43ce","type":"inject","z":"3da09f0d7844dad0","name":"msg.payload","props":[{"p":"payload.name","v":"Test Title","vt":"str"},{"p":"payload.description","v":"Test Description","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":390,"y":200,"wires":[["fb6722ac587b6597"]]},{"id":"9da5db230813bb17","type":"pushbell-config","name":"My API Key","apiKey":"replace with your API key"}]
+[{"id":"fb6722ac587b6597","type":"pushbell","z":"3da09f0d7844dad0","name":"PushBell","config":"9da5db230813bb17","x":540,"y":200,"wires":[]},{"id":"2ffbc301bddb43ce","type":"inject","z":"3da09f0d7844dad0","name":"msg.payload","props":[{"p":"payload.title","v":"My Title","vt":"str"},{"p":"payload.description","v":"My Description","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","x":390,"y":200,"wires":[["fb6722ac587b6597"]]},{"id":"9da5db230813bb17","type":"pushbell-config","name":"My API Key","apiKey":"replace with your own API key"}]
 ```
 
 ### Example with function node
 
 ```
-[{"id":"0780a9a59135a8e0","type":"function","z":"3da09f0d7844dad0","name":"msg.payload","func":"msg.payload = {\n    title: \"My Notification Title\",\n    description: \"My Notification Description\"\n}\n\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":430,"y":260,"wires":[["43ae6e86ca849bf9"]]},{"id":"6af1a75b88ad0e01","type":"inject","z":"3da09f0d7844dad0","name":"inject","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":290,"y":260,"wires":[["0780a9a59135a8e0"]]},{"id":"43ae6e86ca849bf9","type":"pushbell","z":"3da09f0d7844dad0","name":"PushBell","config":"9da5db230813bb17","x":580,"y":260,"wires":[]},{"id":"9da5db230813bb17","type":"pushbell-config","name":"My API Key","apiKey":"replace with your API key"}]
+[{"id":"0780a9a59135a8e0","type":"function","z":"3da09f0d7844dad0","name":"msg.payload","func":"msg.payload = {\n    title: \"My Notification Title\",\n    description: \"My Notification Description\"\n}\n\nreturn msg;","outputs":1,"timeout":0,"noerr":0,"initialize":"","finalize":"","libs":[],"x":430,"y":260,"wires":[["43ae6e86ca849bf9"]]},{"id":"6af1a75b88ad0e01","type":"inject","z":"3da09f0d7844dad0","name":"inject","props":[{"p":"payload"},{"p":"topic","vt":"str"}],"repeat":"","crontab":"","once":false,"onceDelay":0.1,"topic":"","payload":"","payloadType":"date","x":290,"y":260,"wires":[["0780a9a59135a8e0"]]},{"id":"43ae6e86ca849bf9","type":"pushbell","z":"3da09f0d7844dad0","name":"PushBell","config":"9da5db230813bb17","x":580,"y":260,"wires":[]},{"id":"9da5db230813bb17","type":"pushbell-config","name":"My API Key","apiKey":"replace with your own API key"}]
 ```

@@ -1,0 +1,48 @@
+[
+  {
+    "id": "fb6722ac587b6597",
+    "type": "pushbell",
+    "z": "3da09f0d7844dad0",
+    "name": "PushBell",
+    "config": "9da5db230813bb17",
+    "x": 540,
+    "y": 200,
+    "wires": []
+  },
+  {
+    "id": "2ffbc301bddb43ce",
+    "type": "inject",
+    "z": "3da09f0d7844dad0",
+    "name": "msg.payload",
+    "props": [
+      {
+        "p": "payload.name",
+        "v": "Test Title",
+        "vt": "str"
+      },
+      {
+        "p": "payload.description",
+        "v": "Test Description",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 390,
+    "y": 200,
+    "wires": [
+      [
+        "fb6722ac587b6597"
+      ]
+    ]
+  },
+  {
+    "id": "9da5db230813bb17",
+    "type": "pushbell-config",
+    "name": "My API Key",
+    "apiKey": "replace with your own API key"
+  }
+]

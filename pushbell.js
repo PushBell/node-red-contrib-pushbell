@@ -8,8 +8,6 @@ module.exports = function (RED) {
     const pushbellConfig = RED.nodes.getNode(config.config);
 
     async function createNotification(body) {
-      node.log(body);
-
       node.status({
         fill: 'blue',
         shape: 'ring',
@@ -17,11 +15,11 @@ module.exports = function (RED) {
       });
 
       if (pushbellConfig) {
-        const result = await fetch('https://us-central1-push-notifications-9cf36.cloudfunctions.net/api/createNotification', {
+        const result = await fetch('https://www.pushbell.info/api/createNotification', {
           method: 'POST',
           body: JSON.stringify({
-            title: 'Test Title',
-            description: 'Test Description',
+            title: body.title,
+            description: body.description,
           }),
           headers: {
             Authorization: pushbellConfig.apiKey,
@@ -46,9 +44,9 @@ module.exports = function (RED) {
       }
     }
 
-    node.on('input', (msg) => {
+    node.on('input', async (msg) => {
       const { payload } = msg;
-      createNotification(payload);
+      await createNotification(payload);
     });
   }
 
