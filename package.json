@@ -13,16 +13,20 @@
   "license": "MIT",
   "name": "node-red-contrib-pushbell",
   "node-red": {
+    "version": ">=2.0.0",
     "nodes": {
       "pushbell": "pushbell.js",
       "pushbell-config": "pushbell-config.js"
     }
   },
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MariusLang/node-red-contrib-pushbell.git"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "bugs": {
     "url": "https://github.com/MariusLang/node-red-contrib-pushbell/issues"
   },
